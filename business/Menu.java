@@ -7,10 +7,10 @@ import com.qa.models.Order;
 
 public class Menu {
 	
-	private Scan scan = new Scan();
-	private Customer customer = new Customer();
-	private Book book = new Book();
-	private Order order = new Order();
+	Scan scan = new Scan();
+	Customer customer = new Customer();
+	Book book = new Book();
+	Order order = new Order();
 	
 	public Menu() {
 		
@@ -24,10 +24,9 @@ public class Menu {
 							+"2. View all customers\n"
 							+"3. Create new book\n"
 							+"4. View all books\n"
-							+"5. Create new order\n"
+							+"5. Calculate order cost\n"
 							+"6. View all orders\n"
-							+"7. Calculate order cost\n"
-							+"8. Finish\n"
+							+"7. Finish\n"
 							+"===========================\n"
 							+"Please select an option:");
 	}
@@ -63,7 +62,7 @@ public class Menu {
 					customer.read();
 					break;
 				} else if (input.equalsIgnoreCase("n")) {
-					System.out.println("Please re-insert values:\n");
+					System.out.println("Please re-insert values\n");
 					break;
 				} else {
 					System.out.println("Invalid choice, please choose again:");
@@ -98,7 +97,7 @@ public class Menu {
 			System.out.println("Please enter price (e.g 21.0):");
 			book.setPrice(scan.inputDouble());
 
-			System.out.println("Please enter ISBN:");
+			System.out.println("Please enter ISBN (xxx-x-xx-xxxxxx-x, x is a number):");
 			book.setISBN(scan.inputString());
 
 			System.out.println("Is this information correct(y/n) ?");
@@ -111,7 +110,7 @@ public class Menu {
 					book.read();
 					break;
 				} else if (input.equalsIgnoreCase("n")) {
-					System.out.println("Please re-insert values:\n");
+					System.out.println("Please re-insert values\n");
 					break;
 				} else {
 					System.out.println("Invalid choice, please choose again:");
@@ -127,42 +126,9 @@ public class Menu {
 		book.read();
 	}
 
-	public void enterOrder() {
-		String input;
-		do {
-			System.out.println("Please enter CID:");
-			order.setCID(scan.inputInt());
-
-			System.out.println("Please enter order date (YYYY-MM-DD):");
-			order.setOrderDate(scan.inputString());
-
-			System.out.println("Please enter quantity ordered");
-			order.setQtyOrdered(scan.inputInt());
-
-			System.out.println("Is this information correct(y/n)");
-			input = scan.inputString();
-
-			if (input.equalsIgnoreCase("y")) {
-				System.out.println("\nA new order was added, see below:\n");
-				order.createOrder(order);
-				order.read();
-				break;
-
-			} else if (scan.inputString().equalsIgnoreCase("n")) {
-				continue;
-
-			} else {
-				System.out.println("Invalid choice, please choose again:");
-				input = scan.inputString();
-			}
-
-		} while (input.equalsIgnoreCase("n"));
-	}
-
 	public void displayOrders() {
 		order.read();
 	}
-
 }
 
 
