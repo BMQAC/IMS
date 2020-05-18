@@ -99,20 +99,4 @@ public class Customer {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
 }
-// Customer cust = new Customer();
-//
-// System.out.println("add CID");
-// int CID;
-// CID = scanner.inputInt();
-//
-// System.out.println("add first name");
-// String fname;
-// fname = scanner.inputString();
-//
-// System.out.println("add last name");
-// String lname;
-// lname = scanner.inputString();
-//
-// cust.createCustomer(CID, fname, lname);
