@@ -36,7 +36,7 @@ public class Book {
 
 		try {
 			while (results.next()) {
-				System.out.println("\n" + "BID: " + results.getInt("BID") + ", " + "title: " + results.getString("title") + ", "
+				System.out.println("BID: " + results.getInt("BID") + ", " + "title: " + results.getString("title") + ", "
 						+ "genre: " + results.getString("genre") + ", " + "author name: " + results.getString("author_name") + ", "
 						+ "publisher: "+ results.getString("publisher") + ", " + "publish date: " + results.getString("publish_date") + ", "
 						+ "price: " + results.getDouble("price") + ", " + "ISBN: " + results.getString("ISBN"));
