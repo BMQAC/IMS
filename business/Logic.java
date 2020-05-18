@@ -6,9 +6,9 @@ import com.qa.models.Order;
 
 public class Logic {
 
-	private Scan scan = new Scan();
-	private Book book = new Book();
-	private Order order = new Order();
+	Scan scan = new Scan();
+	Book book = new Book();
+	Order order = new Order();
 
 	public Logic() {
 
@@ -28,7 +28,7 @@ public class Logic {
 			double value = price * quantity;
 			System.out.println(value);
 
-			System.out.println("Would you like to save this order(y/n) ?\n");
+			System.out.println("\nWould you like to save this order(y/n) ?");
 			input = scan.inputString();
 
 			while (true) {
@@ -44,7 +44,7 @@ public class Logic {
 					order.read();
 					break;
 				} else if (input.equalsIgnoreCase("n")) {
-					System.out.println("Please recalculate your order:\n");
+					System.out.println("Please recalculate your order\n");
 					break;
 				} else {
 					System.out.println("Invalid choice, please choose again:");
