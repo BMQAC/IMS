@@ -23,14 +23,7 @@ public class Order {
 		this.qtyOrdered = qtyOrdered;
 		this.value = value;
 	}
-	
-	public void createOrder(Order o) {
-		String insert = "INSERT INTO orders (CID, order_date, qty_ordered) VALUES (\"" + o.getCID() + "\", \"" + o.getOrderDate()
-				+ "\", \"" + o.getQtyOrdered() + "\", \"" + o.getValue() + "\")";
 
-		DatabaseConnection.processUpdate(insert);
-	}
-	
 	public void addOrder(int CID, String orderDate, int qtyOrdered, double value) {
 		String insert = "INSERT INTO orders (CID, order_date, qty_ordered, value) VALUES (\"" + CID + "\", \"" + orderDate
 				+ "\", \"" + qtyOrdered + "\", \""+ value+ "\")";
@@ -83,5 +76,4 @@ public class Order {
 	public void setValue(double value) {
 		this.value = value;
 	}
-
 }
