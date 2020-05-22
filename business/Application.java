@@ -4,6 +4,7 @@ import com.qa.interoperability.Scan;
 import com.qa.persistence.DatabaseConnection;
 
 public class Application {
+	
 	Scan scan = new Scan();
 	Menu menu = new Menu();
 	Logic logic = new Logic();
@@ -17,7 +18,7 @@ public class Application {
 		menu.displayMenu();
 		int option = scan.inputInt();
 
-		while (option != 7) {
+		while (option != 11) {
 			switch (option) {
 			case 1:
 				menu.enterCustomer();
@@ -26,16 +27,28 @@ public class Application {
 				menu.displayCustomers();
 				break;
 			case 3:
-				menu.enterBook();
+				menu.deleteCustomer();
 				break;
 			case 4:
-				menu.displayBooks();
+				menu.enterBook();
 				break;
 			case 5:
-				logic.calcCost();
+				menu.displayBooks();
 				break;
 			case 6:
+				menu.deleteBook();
+				break;
+			case 7:
+				menu.enterOrder();
+				break;
+			case 8:
+				logic.calcCost();
+				break;
+			case 9:
 				menu.displayOrders();
+				break;
+			case 10:
+				menu.deleteOrder();
 				break;
 			default:
 				System.out.println("Invalid choice, please choose again:");
@@ -52,7 +65,7 @@ public class Application {
 					option = scan.inputInt();
 					break;
 				} else if (optiontwo.equalsIgnoreCase("n")) {
-					option = 7;
+					option = 11;
 					break;
 				} else {
 					System.out.println("Invalid choice, please choose again:");

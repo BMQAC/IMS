@@ -28,7 +28,7 @@ public class Logic {
 			double value = price * quantity;
 			System.out.println(value);
 
-			System.out.println("\nWould you like to save this order(y/n) ?");
+			System.out.println("\nWould you like to save this order(y/n/quit) ?");
 			input = scan.inputString();
 
 			while (true) {
@@ -44,9 +44,13 @@ public class Logic {
 					order.read();
 					break;
 				} else if (input.equalsIgnoreCase("n")) {
-					System.out.println("Please recalculate your order\n");
+					System.out.println("Please re-calculate your order\n");
 					break;
-				} else {
+				}else if (input.equalsIgnoreCase("quit")) {
+					input = "y";
+					break;
+				} 
+				else {
 					System.out.println("Invalid choice, please choose again:");
 					input = scan.inputString();
 				}
