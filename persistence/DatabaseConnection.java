@@ -19,9 +19,30 @@ public class DatabaseConnection {
 	public DatabaseConnection() {
 		
 	}
+	
+// This connectCheck() method was set up for testing because my connect() method below has a void return type
+	public String connectCheck() {
+		String connected = null;
+		
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			stmt = conn.createStatement();
+			
+			if(conn != null) {
+				connected = "Successful connection to the database";
+			}
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return connected;
+	}
 
+// This is the connect() method I call in my running application 	
 	public static void connect() {
-
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
